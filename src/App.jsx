@@ -60,7 +60,7 @@ function App() {
   return (
     <>
       <div>
-        <h1>Hall of Lens</h1>
+        <h1 className='title'>HALL OF LENS</h1>
 
         <div className='input-container'>
           <Form onSubmit={handleSubmit}>
