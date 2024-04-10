@@ -3,4 +3,37 @@
   height: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source-Sans-3" !important;
+}
+
+.images {
+  display: grid;
+  grid-gap: 1em;
+}
+
+.image {
+  width: 250px;
+  height: 250px;
+}
+
+@media (min-width: 768px) {
+  .images {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .images {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

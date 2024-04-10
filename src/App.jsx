@@ -59,10 +59,10 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1 className='title'>HALL OF LENS</h1>
+      <div className='text-white d-flex flex-column align-items-center'>
+        <h1 className='title mt-5'>HALL OF LENS</h1>
 
-        <div className='input-container'>
+        <div className='input-container w-50 my-3'>
           <Form onSubmit={handleSubmit}>
             <Form.Control 
               type='search'
@@ -73,11 +73,12 @@ function App() {
           </Form>
         </div>
 
-        <div className="filters">
-          <div onClick={() => handleSelection("Cat")}>Cat</div>
-          <div onClick={() => handleSelection("Acura")}>Acura</div>
-          <div onClick={() => handleSelection("Aurora")}>Aurora</div>
-          <div onClick={() => handleSelection("Chocolate")}>Chocolate</div>
+        <div className="filters d-flex gap-2">
+          <Button variant='secondary' onClick={() => handleSelection("Cat")}>Cat</Button>
+          <Button variant='secondary' onClick={() => handleSelection("Acura")}>Acura</Button>
+          <Button variant='secondary' onClick={() => handleSelection("Aurora")}>Aurora</Button>
+          <Button variant='secondary' onClick={() => handleSelection("Chocolate")}>Chocolate</Button>
+          <Button variant='secondary' onClick={() => handleSelection("JDM")}>JDM</Button>
         </div>
 
         {loading ? (
@@ -86,23 +87,23 @@ function App() {
           <>
             {errorMessage ? ( <p>No images found!</p> ) : ( '' ) }
 
-            <div className='image-container'>
+            <div className='mt-5 mb-3 images'>
               {images.map((image) => (
-                <img key={image.id} src={image.urls.small} alt={image.alt_description} />
+                <img className="image" key={image.id} src={image.urls.small} alt={image.alt_description} />
               ))}
             </div>
             
-            <div className='pagination'>
+            <div className='pagination gap-3 me-4 mb-3 d-flex justify-content-center'>
               {page > 1 && (
-                <Button onClick={() => setPage(page - 1)}>Previous</Button>
+                <Button variant='danger' className='fw-bold text-white' onClick={() => setPage(page - 1)}>Previous</Button>
               )}
 
               {page > 1 && page < totalPages && (
-                <p>{page}</p>
+                <div className='align-self-center fw-bold '>{page}</div>
               )}
 
               {page < totalPages && (
-                <Button onClick={() => setPage(page + 1)}>Next</Button>
+                <Button variant='danger' className='fw-bold text-white' onClick={() => setPage(page + 1)}>Next</Button>
               )}
             </div>
           </>
