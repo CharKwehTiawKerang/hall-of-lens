@@ -82,10 +82,10 @@ function App() {
         </div>
 
         {loading ? (
-          <p>Loading...</p>
+          <p className='mt-5'>Loading...</p>
         ) : (
           <>
-            {errorMessage ? ( <p>No images found!</p> ) : ( '' ) }
+            {errorMessage ? ( <p className='mt-5'>No images found!</p> ) : ( '' ) }
 
             <div className='mt-5 mb-3 images'>
               {images.map((image) => (
