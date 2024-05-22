@@ -39,6 +39,13 @@ function App() {
   }
 
   const fetchImages = useCallback(async () => {
+    if(!searchInput.current.value) {
+      setImages([]);
+      setTotalPages(0);
+      setLoading(false);
+        return;
+    }
+
     try {
       setLoading(true);
       const { data } = await axios.get(`${baseUrl}?query=${searchInput.current.value}&page=${page}&per_page=${IMAGES_PER_PAGE}&client_id=${import.meta.env.VITE_UNSPLASH_ACCESS}`);
